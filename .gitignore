@@ -2,6 +2,6 @@ node_modules/
 dist/
 .env
 data/
-storage/
+/storage/
 *.db
 .DS_Store
