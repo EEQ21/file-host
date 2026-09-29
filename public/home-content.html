@@ -1,0 +1,79 @@
+<div class="hero-inner" id="upload">
+  <h1 class="headline">Upload. Share. Done.</h1>
+  <p class="subhead muted">Host files instantly with no account required.</p>
+
+  <div id="upload-root">
+    <div id="state-idle" class="upload-panel">
+      <div
+        class="upload-box"
+        id="drop-zone"
+        role="button"
+        tabindex="0"
+        aria-label="Upload a file. Drop a file here or click to browse."
+      >
+        <input type="file" id="file-input" class="file-input" aria-describedby="upload-hints">
+        <div class="upload-icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 16V4m0 0l-4 4m4-4l4 4M4 20h16" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="upload-title" id="drop-label">Drop your file here</p>
+        <p class="upload-sub muted">or click to browse</p>
+      </div>
+      <p class="upload-hints muted" id="upload-hints">Maximum file size: 1 GB · All file types supported</p>
+    </div>
+
+    <div id="state-uploading" class="upload-panel hidden" aria-live="polite">
+      <div class="upload-box upload-box--active">
+        <p class="file-meta-name" id="up-filename"></p>
+        <p class="file-meta-size muted" id="up-size"></p>
+        <p class="upload-status" id="up-status">Uploading…</p>
+        <div class="progress-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar-wrap">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <p class="progress-detail muted" id="up-detail"></p>
+        <button type="button" class="btn btn-secondary" id="cancel-btn">Cancel</button>
+      </div>
+    </div>
+
+    <div id="state-success" class="upload-panel hidden" aria-live="polite">
+      <div class="upload-box upload-box--success">
+        <div class="success-check" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h2 class="success-title">Your file is ready</h2>
+        <div id="success-preview" class="success-preview hidden" aria-hidden="true"></div>
+        <p class="file-meta-name" id="ok-filename"></p>
+        <p class="file-meta-size muted" id="ok-size"></p>
+        <div class="url-block success-url">
+          <label class="url-label" for="share-url">Share link</label>
+          <div class="url-row">
+            <input class="url-input" id="share-url" readonly>
+            <button type="button" class="btn btn-secondary copy-btn" data-copy-target="share-url">Copy</button>
+          </div>
+        </div>
+        <div class="url-block success-url">
+          <label class="url-label" for="direct-url">Direct download</label>
+          <p class="url-hint muted">Use this link to download the file directly.</p>
+          <div class="url-row">
+            <input class="url-input" id="direct-url" readonly>
+            <button type="button" class="btn btn-secondary copy-btn" data-copy-target="direct-url">Copy</button>
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary btn-lg" id="download-btn">Download file</a>
+      </div>
+    </div>
+
+    <div id="state-error" class="upload-panel hidden" role="alert">
+      <div class="upload-box upload-box--error">
+        <h2 class="error-title" id="err-title">Upload failed</h2>
+        <p class="muted" id="err-message"></p>
+        <button type="button" class="btn btn-primary" id="retry-btn">Try again</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="hero-foot muted">Up to 1 GB · All file types supported</p>
+</div>
