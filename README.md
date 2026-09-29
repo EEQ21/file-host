@@ -66,4 +66,4 @@ For production at scale, consider **direct-to-S3 multipart uploads** (presigned 
 
 ## License
 
-Private project. EEQ21/file-host
+[MIT](LICENSE)
